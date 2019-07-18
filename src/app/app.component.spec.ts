@@ -1,16 +1,35 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+import { TodoDataService } from './todo-data.service';
+import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoListFooterComponent } from './todo-list-footer/todo-list-footer.component';
+import { TodoListHeaderComponent } from './todo-list-header/todo-list-header.component';
+import { TodoListItemComponent } from './todo-list-item/todo-list-item.component';
+import { ApiService } from './api.service';
+import { ApiMockService } from './api-mock.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        FormsModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        TodoListComponent,
+        TodoListFooterComponent,
+        TodoListHeaderComponent,
+        TodoListItemComponent
       ],
+      providers: [
+        TodoDataService,
+        {
+          provide: ApiService,
+          useClass: ApiMockService
+        }
+      ]
     }).compileComponents();
   }));
 
@@ -18,18 +37,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'how-to-test-in-angular'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('how-to-test-in-angular');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to how-to-test-in-angular!');
   });
 });
