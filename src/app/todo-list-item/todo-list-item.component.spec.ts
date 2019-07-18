@@ -9,6 +9,7 @@ import { Todo } from '../todo';
 describe('TodoListItemComponent', () => {
   let component: TodoListItemComponent;
   let fixture: ComponentFixture<TodoListItemComponent>;
+  let element: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -21,10 +22,7 @@ describe('TodoListItemComponent', () => {
     fixture = TestBed.createComponent(TodoListItemComponent);
     component = fixture.componentInstance;
     component.todo = new Todo({ id: 1, title: 'Test', complete: false });
+    element = fixture.debugElement;
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });

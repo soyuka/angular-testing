@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 describe('TodoListHeaderComponent', () => {
   let component: TodoListHeaderComponent;
   let fixture: ComponentFixture<TodoListHeaderComponent>;
+  let element: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -23,10 +24,8 @@ describe('TodoListHeaderComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TodoListHeaderComponent);
     component = fixture.componentInstance;
+    element = fixture.debugElement;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });
