@@ -19,17 +19,17 @@ describe('Api service testing', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule ],
-      providers: [ ApiService ]
+      imports: [HttpClientTestingModule],
+      providers: [ApiService]
     });
 
     // Inject the http service and test controller for each test
-    httpClient = TestBed.get(HttpClient);
-    httpTestingController = TestBed.get(HttpTestingController);
-    apiService = TestBed.get(ApiService);
+    httpClient = TestBed.inject(HttpClient);
+    httpTestingController = TestBed.inject(HttpTestingController);
+    apiService = TestBed.inject(ApiService);
   });
 
   afterEach(() => {
-     httpTestingController.verify();
+    httpTestingController.verify();
   });
 });
