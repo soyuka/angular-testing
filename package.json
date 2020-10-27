@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "npm run server & ng serve",
+    "start": "echo 'Run 'npm run server' for the API.' && ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
