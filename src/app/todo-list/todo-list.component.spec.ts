@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 
@@ -12,23 +12,23 @@ describe('TodoListComponent', () => {
   let fixture: ComponentFixture<TodoListComponent>;
   let element: DebugElement;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoListComponent, TodoListItemComponent ],
+      declarations: [TodoListComponent, TodoListItemComponent],
       schemas: [
         NO_ERRORS_SCHEMA
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TodoListComponent);
     component = fixture.componentInstance;
     component.todos = [
-     new Todo({ id: 1, title: 'Test', complete: false }),
-     new Todo({ id: 2, title: 'Test', complete: false }),
-     new Todo({ id: 3, title: 'Test', complete: true })
+      new Todo({ id: 1, title: 'Test', complete: false }),
+      new Todo({ id: 2, title: 'Test', complete: false }),
+      new Todo({ id: 3, title: 'Test', complete: true })
     ];
     element = fixture.debugElement;
     fixture.detectChanges();

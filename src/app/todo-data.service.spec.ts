@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 
-import {TestBed, inject} from '@angular/core/testing';
-import {TodoDataService} from './todo-data.service';
+import { TestBed, inject } from '@angular/core/testing';
+import { TodoDataService } from './todo-data.service';
 import { ApiService } from './api.service';
 import { Todo } from './todo';
 import { defer } from 'rxjs';
@@ -21,6 +21,6 @@ describe('TodoDataService', () => {
     TestBed.configureTestingModule({
     });
 
-    todoDataService = TestBed.get(TodoDataService);
+    todoDataService = TestBed.inject(TodoDataService);
   });
 });
